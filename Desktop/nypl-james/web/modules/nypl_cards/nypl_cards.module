@@ -12,55 +12,19 @@
 use Drupal\Core\Entity\EntityTypeInterface;
 
 /**
- * Implements hook_entity_base_field_info_alter().
- */
-function nypl_cards_entity_base_field_info_alter(
-  array &$fields,
-  EntityTypeInterface $entity_type
-) {
-  // You can add constraints to base fields of entities defined by other
-  // modules using this hook.
-  // Here's some sample code for how this might work.
-  if (FALSE) {
-    // With the code below, you can check the URL alias of an entity.
-    $fields['path']->addPropertyConstraints('alias', [
-      'ConstraintID' => [
-        'Option 1' => 'foo',
-        'Option 2' => 'bar',
-      ],
-    ]);
-  }
-}
-
-/**
  * Implements hook_entity_bundle_field_info_alter().
  */
-function nypl_cards_entity_bundle_field_info_alter(
-  array &$fields,
-  EntityTypeInterface $entity_type,
-  $bundle
-) {
+function nypl_cards_entity_bundle_field_info_alter(array &$fields,EntityTypeInterface $entity_type,
+  $bundle) {
   // You can add constraints to bundle-specific fields of entities defined by
   // other modules using this hook. For example, the code below adds a
-  // constraint to the "field_image" of "article" nodes.
+  // constraint to the "field_start/end_date" of "nypl_card" nodes.
   if (
     $entity_type->id() === 'node' &&
-    $bundle === 'article' &&
-    isset($fields['field_image'])
+    $bundle === 'nypl_card' &&
+    (isset($fields['field_start_date']) || isset($fields['field_end_date']))
   ) {
-    $fields['field_image']->addConstraint('NotEmptyWhenPublished', []);
-  }
-}
-
-/**
- * Implements hook_entity_type_alter().
- */
-function nypl_cards_entity_type_alter(array &$entity_types) {
-  // You can add constraints to an entire entity type using this hook. For
-  // example, the code below adds a constraint to the "user" entity. The
-  // constraint makes sure that the user provides at least field_phone_fixed
-  // or field_phone_mobile.
-  if (isset($entity_types['user'])) {
-    $entity_types['user']->addConstraint('PhoneNumberRequired');
+    $fields['field_start_date']->addConstraint('Weekday', []);
+    $fields['field_end_date']->addConstraint('Weekday', []);
   }
 }

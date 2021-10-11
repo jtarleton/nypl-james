@@ -1,7 +1,7 @@
 nypl_cards.example:
-  path: '/nypl-cards/example'
+  path: '/nypl-cards/index'
   defaults:
     _title: 'Example'
     _controller: '\Drupal\nypl_cards\Controller\NyplCardsController::build'
   requirements:
-    _permission: 'access content'
+    _permission: 'administer content'

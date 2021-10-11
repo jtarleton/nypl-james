@@ -24,7 +24,7 @@ function nypl_cards_entity_bundle_field_info_alter(array &$fields,EntityTypeInte
     $bundle === 'nypl_card' &&
     (isset($fields['field_start_date']) || isset($fields['field_end_date']))
   ) {
-    $fields['field_start_date']->addConstraint('Weekday', []);
-    $fields['field_end_date']->addConstraint('Weekday', []);
+    $fields['field_start_date']->addConstraint('WeekdayDate', []);
+    $fields['field_end_date']->addConstraint('WeekdayDate', []);
   }
 }

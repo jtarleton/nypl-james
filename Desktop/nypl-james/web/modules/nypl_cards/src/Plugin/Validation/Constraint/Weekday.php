@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\custom_validation\Plugin\Validation\Constraint;
+namespace Drupal\nypl_cards\Plugin\Validation\Constraint;
 
 use Symfony\Component\Validator\Constraint;
 
@@ -15,6 +15,6 @@ use Symfony\Component\Validator\Constraint;
  */
 class WeekdayDate extends Constraint {
 
-  public $needsValue = 'Please enter a weekday: Monday to Friday.';
+  public $needsValue = 'Please enter a weekday for %field: Monday to Friday.';
 
 }

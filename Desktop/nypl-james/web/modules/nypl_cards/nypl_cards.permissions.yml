@@ -1,0 +1,4 @@
+administer nypl_cards configuration:
+  title: 'Administer nypl_cards configuration'
+  description: 'Optional description.'
+  restrict access: true

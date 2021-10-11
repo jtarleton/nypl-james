@@ -1,0 +1,24 @@
+uuid: f43bd466-7e47-4e43-81f6-166e24b18406
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_end_date
+    - node.type.nypl_card
+  module:
+    - datetime
+id: node.nypl_card.field_end_date
+field_name: field_end_date
+entity_type: node
+bundle: nypl_card
+label: 'End Date'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

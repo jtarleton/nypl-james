@@ -1,0 +1,6 @@
+name: NYPL Cards
+type: module
+description: A custom module to track NYPL card content.
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9

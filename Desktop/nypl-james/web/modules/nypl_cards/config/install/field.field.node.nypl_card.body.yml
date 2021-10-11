@@ -1,0 +1,23 @@
+uuid: 5881edf7-c4a6-4606-b727-eafe4cc3ea17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.nypl_card
+  module:
+    - text
+id: node.nypl_card.body
+field_name: body
+entity_type: node
+bundle: nypl_card
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

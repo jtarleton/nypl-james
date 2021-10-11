@@ -1,0 +1,29 @@
+uuid: 6be7c3dd-03c6-41dc-9e79-3acba0a20e38
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.nypl_card
+    - taxonomy.vocabulary.tags
+id: node.nypl_card.field_tags
+field_name: field_tags
+entity_type: node
+bundle: nypl_card
+label: Tags
+description: 'One ore more tags associated with the content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -18,9 +18,9 @@ class WeekdayDateValidator extends ConstraintValidator {
     // Since the constraint was added to an entity type, $value will
     // represent the Nyc Card entity.
     /** @var \Drupal\Core\Entity\EntityInterface $entity */
-    $entity =&$value;
+    $field =&$value;
 
-    // Since we have the entire entity, our validation can check multiple
+    /* Since we have the entire entity, our validation can check multiple
     // fields. This helps perform validations on the entity as a whole as
     // opposed to only a field.
     if (
@@ -42,10 +42,10 @@ class WeekdayDateValidator extends ConstraintValidator {
         '%field_start' => 'Start Date',
         '%field_end' =>'End Date',
       ]);
-    }
+    } */
 
     if (
-      $this->isWeekend($entity->field_start_date->getValue())
+      $this->isWeekend($field->getValue())
     ) {
       $this->context->addViolation($constraint->needsValue, [
         '%field_start' => 'Start Date',
@@ -54,7 +54,7 @@ class WeekdayDateValidator extends ConstraintValidator {
     }
 
     if (
-      $this->isWeekend($entity->field_end_date->getValue())
+      $this->isWeekend($field->getValue())
     ) {
       $this->context->addViolation($constraint->needsValue, [
         '%field_start' => '',

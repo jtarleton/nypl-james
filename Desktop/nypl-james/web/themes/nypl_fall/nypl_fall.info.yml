@@ -1,7 +1,7 @@
 name: NYPL Fall
 type: theme
 base theme: classy
-description: A custom theme.[D[D[D[D[D[DNYPL theme.
+description: A custom NYPL theme.
 package: Custom
 core: 8.x
 core_version_requirement: ^8 || ^9
